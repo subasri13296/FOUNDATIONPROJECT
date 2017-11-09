@@ -1,3 +1,3 @@
 #temporary file hello new
-#java file
-*PG!.java* - main class
+#java program simple
+*Pr.java* - main class
