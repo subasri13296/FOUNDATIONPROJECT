@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="foundation.emp.Employee" table="EMPLOYEE_DETAILS">
+      <id name="id" type="int" column="EMP_ID">
+         <generator class="increment"/>
+      </id>
+      <property name="name" column="EMP_NAME" type="string"/>
+      <property name="email" column="EMAIL_ID" type="string"/>
+      <property name="phone" column="PHONE_NO" type="long"/>
+      <property name="basicSalary" column="BASIC_PAY" type="double"/>
+      <property name="houseRentAllowance" column="HRA" type="float"/>
+      <property name="travelAllowance" column="TA" type="float"/>
+      <property name="dearnessAllowance" column="DA" type="float"/>
+      <property name="providentFund" column="PF" type="float"/>
+   </class>
+</hibernate-mapping>
