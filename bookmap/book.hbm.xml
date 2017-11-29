@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="bookmap.Book" table="BOOK_DETAILS" discriminator-value="BOOK">
+      <id name="id" type="int" column="BOOK_ID">
+         <generator class="native"/>
+      </id>
+      <discriminator column="DISCRIMINATOR" type="string"/>
+      
+      <property name="name" column="BOOK_NAME" type="string"/>
+      <property name="author" column="AUTHOR_NAME" type="string"/>
+      <property name="price" column="PRICE" type="double"/>
+      <property name="isbnNo" column="ISBN_NO" type="int"/>
+      
+     <subclass name="bookmap.EBook" extends="Book" discriminator-value="EB">
+				<property name="downloadUrl" column="download_URL" type="string" />
+				<property name="sizeInMB" type="double" column="size_in_MB"  />
+		</subclass>
+		 <subclass name="bookmap.PaperBook" extends="Book" discriminator-value="PB">
+				<property name="shippingWeight" column="shipping_weight" type="double" />
+				<property name="inStock" type="int" column="in_stock"  />
+		</subclass>
+   
+   </class>
+</hibernate-mapping>
