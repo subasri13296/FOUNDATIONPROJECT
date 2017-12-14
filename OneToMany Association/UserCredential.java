@@ -14,6 +14,9 @@ import javax.persistence.Table;
 public class UserCredential {
 
 	@OneToMany
+	@JoinTable(name="user_prof_Cred",
+		joinColumns=@JoinColumn(name="username"),
+		inverseJoinColumns=@JoinColumn(name="prof_id"))
 	private Set<UserProfile> profiles = new HashSet<UserProfile>();
 
 	public Set<UserProfile> getProfiles() {
