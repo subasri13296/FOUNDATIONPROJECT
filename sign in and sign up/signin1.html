@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html class="pyback" lang="en">
+<head>
+            <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='shortcut icon' href='/pyrun/images/fav.png' type='image/x-icon'/>
+    <link rel='stylesheet' href='/pyrun/css/bootstrap.min.css' type='text/css'/>
+    <link rel='stylesheet' href='/pyrun/css/main-style.css' type='text/css'/>
+    <script type="text/javascript" src="/pyrun/scripts/jquery-1.12.4.min.js" ></script>
+    <title>Codit - Python Login</title>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $("#lgn-form").submit(function(e) {
+            e.preventDefault();
+            $("#err-msg").css({display: "none"});
+            $.post("/pyrun/api/login",
+            $("#lgn-form").serialize(),
+            function(res, status){
+                if(res.status === 1) {
+                    window.location = "/pyrun/codes";
+                } else {
+                    $("#err-msg").css({display: "block"}).text(res.message);
+                }
+            });
+        });
+    });
+    </script>
+</head>
+<body class="pyback">
+<form class="form-horizontal" id="lgn-form" method="post" action="api/login">
+    <div class="account-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div style="height: 20px;"></div>
+                </div>
+                <div class="col-12">
+                    <div style="text-align: center">
+                        <a href="/pyrun">
+                            <img src="images/logo.png" alt=""/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div style="height: 20px;"></div>
+                </div>
+                <div class="form-group col-12">
+                    <label for="username" class="col-12 control-label">Username</label>
+                    <div class="col-12">
+                        <input type="text" name="auth_user" class="form-control" id="username" placeholder="Username here">
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <label for="password" class="col-5 control-label">Password</label>
+                    <label class="col-6 control-label" style="text-align: right">
+                        <a href="javascript:void(0)">Forgot Password</a>
+                    </label>
+                    <div class="col-12">
+                        <input type="password" name="auth_key" class="form-control" id="password" placeholder="Password here">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div style="height: 10px;"></div>
+                </div>
+                <div class="form-group col-12">
+                    <div class="col-12">
+                        <input type="submit" id="lgn-btn" name="submit" class="col-12 btn btn-primary" value="Sign in" />
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <div class="account-line"></div>
+                </div>
+                <div class="form-group col-12">
+                    <div class="col-12">
+                        <a href="register" class="col-12 btn btn-success">Need an account</a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div style="height: 20px;"></div>
+                </div>
+                <div class="col-12">
+                    <p class="footer-text">&copy;codit. teampython.kce@gmail.com</p>
+                </div>
+                <div class="col-12">
+                    <div style="height: 10px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="fixed-status">
+    <div style="display: none" id="err-msg" class="alert alert-danger">
+        message
+    </div>
+</div>
+</body>
+</html>

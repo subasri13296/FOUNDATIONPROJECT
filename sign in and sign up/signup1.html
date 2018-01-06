@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html class="pyback" lang="en">
+<head>
+            <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='shortcut icon' href='/pyrun/images/fav.png' type='image/x-icon'/>
+    <link rel='stylesheet' href='/pyrun/css/bootstrap.min.css' type='text/css'/>
+    <link rel='stylesheet' href='/pyrun/css/main-style.css' type='text/css'/>
+    <script type="text/javascript" src="/pyrun/scripts/jquery-1.12.4.min.js" ></script>
+    <title>Codit - Python Register</title>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $("#sgn-form").submit(function(e) {
+            e.preventDefault();
+            $("#err-msg").css({display: "none"});
+            $.post("/pyrun/api/register",
+            $("#sgn-form").serialize(),
+            function(res, status){
+                if(res.status === 1) {
+                    $("input[type=text]").val('');
+                    $("input[type=password]").val('');
+                    $("#err-msg").css({display: "block"}).removeClass("alert-danger").addClass("alert-success").html("Registered. Click here to <a href='/pyrun/login'>login</a>.");
+                } else {
+                    $("#err-msg").css({display: "block"}).removeClass("alert-success").addClass("alert-danger").text(res.message);
+                }
+            });
+        });
+    });
+    </script>
+</head>
+<body class="pyback">
+<form class="form-horizontal" id="sgn-form" method="post" action="api/register">
+    <div class="account-wrapper signup">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div style="height: 20px;"></div>
+                </div>
+                <div class="col-12">
+                    <div style="text-align: center">
+                        <a href="/pyrun">
+                            <img src="images/logo.png" alt=""/>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div style="height: 20px;"></div>
+                </div>
+                <div class="form-group col-12">
+                    <label for="username" class="col-12 control-label">Username</label>
+                    <div class="col-12">
+                        <input type="text" name="auth_user" class="form-control" id="username" placeholder="Username here">
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <label for="password" class="col-12 control-label">Password</label>
+                    <div class="col-12">
+                        <input type="password" name="auth_key" class="form-control" id="password" placeholder="Password here">
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <label for="email" class="col-12 control-label">Email Id</label>
+                    <div class="col-12">
+                        <input type="text" name="auth_email" class="form-control" id="email" placeholder="Email id here">
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <label for="fullname" class="col-12 control-label">Full Name</label>
+                    <div class="col-12">
+                        <input type="text" name="auth_name" class="form-control" id="fullname" placeholder="Full name here">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div style="height: 10px;"></div>
+                </div>
+                <div class="form-group col-12">
+                    <div class="col-12">
+                        <input type="submit" id="sgn-btn" name="submit" value="Sign up" class="col-12 btn btn-success" />
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <div class="account-line"></div>
+                </div>
+                <div class="form-group col-12">
+                    <div class="col-12">
+                        <a href="login" class="col-12 btn btn-primary">I have an account</a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div style="height: 20px;"></div>
+                </div>
+                <div class="col-12">
+                    <p class="footer-text">&copy;codit. teampython.kce@gmail.com</p>
+                </div>
+                <div class="col-12">
+                    <div style="height: 10px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="fixed-status">
+    <div style="display: none" id="err-msg" class="alert alert-danger">
+        message
+    </div>
+</div>
+</body>
+</html>
