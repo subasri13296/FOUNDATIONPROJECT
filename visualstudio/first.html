@@ -1,0 +1,21 @@
+<html lang="en" ng-app="demo">
+    <head>
+        <title>Angular web</title>
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+        <script type ="text/javascript" src="js/angular.js"></script>
+        <script type ="text/javascript" src="js/modal.js"></script>
+            </head>
+        <body>
+            <div class="container" ng-controller="storeController as store">
+                <div class ="row">
+                    <div class ="col-12 col-sm-6 col-md-4 col-3" ng-repeat="product in store.products" ng-hide="product.soldOut">
+        <h4><bold>Name:</bold>{{product.name}}</h4>
+        <h4><bold>Phone:</bold>{{product.contact}}</h4>
+        <h4>Dob:{{product.dob}}</h4>
+        <h4>Email:{{product.mail}}</h4>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-primary">Delete</button>
+        </div>
+    </div></div>
+    </body>
+    </html>

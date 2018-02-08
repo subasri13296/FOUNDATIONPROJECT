@@ -1,0 +1,47 @@
+(function(){
+    var app=angular.module("demo1",[]);
+    app.controller("contactDisplay",function(){
+        this.persons=contacts
+    });
+    var contacts=[{
+        firstName:"steve",
+        lastName:"jobs",
+        dob:"12-jan-1996",
+        email:"steve@gmail.com",
+        ph:78459621
+    },{
+        firstName:"suba",
+        lastName:"sri",
+        dob:"13-feb-1996",
+        email:"suba@gmail.com",
+        ph:7887459312
+    },{
+        firstName:"geetha",
+        lastName:"priya",
+        dob:"06-dec-1994",
+        email:"geetha@gmail.com",
+        ph:98746321
+    },
+    {
+        firstName:"preethi",
+        lastName:"magesh",
+        dob:"22-dec-1995",
+        email:"preethi@gmail.com",
+        ph:1547832147
+    },
+    {
+        firstName:"abi",
+        lastName:"mukesh",
+        dob:"2-oct-1996",
+        email:"abi@ymail.com",
+        ph:987466214
+    },
+    {
+        firstName:"priya",
+        lastName:"pries",
+        dob:"30-jan-1995",
+        email:"pries@yahoo.com",
+        ph:458796321
+    }
+    ];
+    })();

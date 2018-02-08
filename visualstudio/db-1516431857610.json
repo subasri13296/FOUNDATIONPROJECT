@@ -1,0 +1,38 @@
+{
+  "contacts": [
+    {
+      "id": 101,
+      "firstName": "suba",
+      "lastName": "sri",
+      "dob": "13-feb-1996",
+      "email": "suba@gmail.com",
+      "ph": 7887459312,
+      "editable": false
+    },
+    {
+      "id": 102,
+      "firstName": "geetha",
+      "lastName": "priya",
+      "dob": "06-dec-1994",
+      "email": "geetha@gmail.com",
+      "ph": 98746321,
+      "editable": false
+    },
+    {
+      "id": 103,
+      "firstName": "preethi",
+      "lastName": "magesh",
+      "dob": "22-dec-1995",
+      "email": "preethi@gmail.com",
+      "ph": 1547832147
+    },
+    {
+      "id": 104,
+      "firstName": "abi",
+      "lastName": "mukesh",
+      "dob": "2-oct-1996",
+      "email": "abi@ymail.com",
+      "ph": 987466214
+    }
+  ]
+}

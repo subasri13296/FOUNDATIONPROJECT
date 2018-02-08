@@ -1,0 +1,56 @@
+<html lang="en" ng-app="demo">
+    <head>
+  <title>Angular Web</title>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+  <script type="text/javascript" src="js/angular.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+    </head>
+    <body>
+      <div class="container" ng-controller="storecontroller as store">
+        
+    <table class="table">
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>FirstName</th>
+      <th>lastName</th>
+      <th>dob</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>edit/delete</th>
+    </tr>
+    <tr ng-repeat="contact in store.contacts">
+        <td>{{$index + 1}}</td>
+        <td>{{contact.id}}</td>
+        <td>
+            <span ng-show="!contact.editable">{{contact.firstName}}</span>
+            <input ng-show="contact.editable" type="text" class="form-control" ng-model="contact.firstName" />
+        </td>
+        <td>
+            <span ng-show="!contact.editable">{{contact.lastName}}</span>
+            <input ng-show="contact.editable" type="text" class="form-control" ng-model="contact.lastName" />
+        </td>
+        <td>
+            <span ng-show="!contact.editable">{{contact.dob}}</span>
+            <input ng-show="contact.editable" type="text" class="form-control" ng-model="contact.dob" />
+        </td>
+        <td>
+            <span ng-show="!contact.editable">{{contact.email}}</span>
+            <input ng-show="contact.editable" type="text" class="form-control" ng-model="contact.email" />
+        </td>
+        <td>
+            <span ng-show="!contact.editable">{{contact.ph}}</span>
+            <input ng-show="contact.editable" type="text" class="form-control" ng-model="contact.ph" />
+        </td>
+        <td>
+            <button ng-show="!contact.editable" ng-click="store.toggleEdit(contact)" class="btn btn-primary btn-sm">Edit</button>
+            <button ng-show="contact.editable" ng-click="store.toggleEdit(contact)" class="btn btn-success btn-sm">Update</button>
+            <button ng-click="store.delete($index,contact.id)" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+    </tr>
+   </table>
+    </div>
+  </div>
+  </div>  
+  </body>
+</html>
